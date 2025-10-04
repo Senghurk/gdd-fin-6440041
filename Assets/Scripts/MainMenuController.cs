@@ -3,12 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    // Scene names - update these to match your actual scene names
     private const string DRIVING_SCENE = "DrivingGameScene";
     private const string FLYING_SCENE = "FlyingGameScene";
     private const string SUMO_SCENE = "SumoBallGameScene";
 
-    // Button click methods
     public void OnMadDriverClick()
     {
         Debug.Log("Loading Driving Game...");
@@ -57,7 +55,6 @@ public class MainMenuController : MonoBehaviour
         }
         else
         {
-            // If running in Unity Editor
             #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
             #else
