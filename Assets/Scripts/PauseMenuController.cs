@@ -69,7 +69,14 @@ public class PauseMenuController : MonoBehaviour
     {
         Debug.Log("Going back to Main Menu...");
         Time.timeScale = 1f;
-        SceneManager.LoadScene(MAIN_MENU_SCENE);
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.LoadScene(MAIN_MENU_SCENE);
+        }
+        else
+        {
+            SceneManager.LoadScene(MAIN_MENU_SCENE);
+        }
     }
 
     // Clean up when object is destroyed

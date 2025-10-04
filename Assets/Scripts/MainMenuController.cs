@@ -12,30 +12,57 @@ public class MainMenuController : MonoBehaviour
     public void OnMadDriverClick()
     {
         Debug.Log("Loading Driving Game...");
-        SceneManager.LoadScene(DRIVING_SCENE);
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.LoadScene(DRIVING_SCENE);
+        }
+        else
+        {
+            SceneManager.LoadScene(DRIVING_SCENE);
+        }
     }
 
     public void OnFlyLikeABirdClick()
     {
         Debug.Log("Loading Flying Game...");
-        SceneManager.LoadScene(FLYING_SCENE);
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.LoadScene(FLYING_SCENE);
+        }
+        else
+        {
+            SceneManager.LoadScene(FLYING_SCENE);
+        }
     }
 
     public void OnSumoAndBallClick()
     {
         Debug.Log("Loading Sumo Game...");
-        SceneManager.LoadScene(SUMO_SCENE);
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.LoadScene(SUMO_SCENE);
+        }
+        else
+        {
+            SceneManager.LoadScene(SUMO_SCENE);
+        }
     }
 
     public void OnExitClick()
     {
         Debug.Log("Exiting game...");
-
-        // If running in Unity Editor
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
-        #endif
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.QuitGame();
+        }
+        else
+        {
+            // If running in Unity Editor
+            #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+            #else
+                Application.Quit();
+            #endif
+        }
     }
 }
